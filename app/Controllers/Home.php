@@ -8,4 +8,13 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+
+    public function test(){
+
+        $data = [
+            'title' => 'Tesuto'
+        ];
+
+        return view('test', $data);
+    }
 }
