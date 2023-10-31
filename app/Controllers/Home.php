@@ -18,10 +18,21 @@ class Home extends BaseController
         return view('test', $data);
     }
 
+
     public  function adminDashboard():string{
         $data = [
             'title'=> 'admin'
         ];
         return view('Dashboard_admin',$data);
     }
+
+    public function menu(){
+
+        $data = [
+            'title' => 'Sanara Cafe'
+        ];
+
+        return view('menu', $data);
+    }
+
 }
