@@ -17,4 +17,14 @@ class Home extends BaseController
 
         return view('test', $data);
     }
+
+    public function menu(){
+
+        $data = [
+            'title' => 'Tesuto'
+        ];
+
+        return view('menu', $data);
+    }
+
 }
