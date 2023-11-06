@@ -30,7 +30,7 @@
                         <a href="service.html" class="nav-item nav-link">Testimoni</a>
                         <a href="service.html" class="nav-item nav-link">Keluhan</a>
                     </div>
-                    <a href="" class="btn btn-primary py-2 px-4">Logout</a>
+                    <a href="<?= base_url('logout');?>" class="btn btn-primary py-2 px-4">Logout</a>
                 </div>
             </nav>
 
