@@ -29,6 +29,7 @@
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Testimoni</a>
                         <a href="service.html" class="nav-item nav-link">Keluhan</a>
+                        <a href="<?= base_url('/user_list');?>" class="nav-item nav-link">List User</a>
                     </div>
                     <a href="<?= base_url('logout');?>" class="btn btn-primary py-2 px-4">Logout</a>
                 </div>

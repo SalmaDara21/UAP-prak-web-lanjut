@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/app') ?>
+<?= $this->extend('layouts/app_admin') ?>
 
 <?= $this->section('content') ?>
 
@@ -16,38 +16,37 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Restoran</h1>
+                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Sanara Cafe</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
+                <div style="color:white">admin</div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="index.html" class="nav-item nav-link active">Profile</a>
+                        <a href="<?= base_url('/admin/index');?>" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="menu.html" class="nav-item nav-link">Menu</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="booking.html" class="dropdown-item">Booking</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="service.html" class="nav-item nav-link">Testimoni</a>
+                        <a href="service.html" class="nav-item nav-link">Keluhan</a>
+                        <a href="<?= base_url('/user_list');?>" class="nav-item nav-link active">List User</a>
                     </div>
-                    <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
+                    <a href="<?= base_url('logout');?>" class="btn btn-primary py-2 px-4">Logout</a>
                 </div>
             </nav>
 
-            <div class="container-xxl py-5 bg-dark hero-header mb-5">
-                <div class="container my-5 py-5">
-                    <div class="row align-items-center g-5">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            
+        </div>
+        <!-- Navbar & Hero End -->
+         
+        <!-- Menu Start -->
+        <div class="container-xxl py-5">
+            <div class="container my-5 py-5">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-5">Akun</h1>
+                </div>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -74,16 +73,12 @@
                             </tbody>
                             </table>
                         </div>
-                        <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                            <img class="img-fluid" src="img/hero.png" alt="">
-                        </div>
                     </div>
                 </div>
+                
             </div>
         </div>
-        <!-- Navbar & Hero End -->
-
-
+        <!-- Menu End -->
 
 
        
