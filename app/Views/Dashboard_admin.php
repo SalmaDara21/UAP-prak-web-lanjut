@@ -387,7 +387,7 @@
                                 <i class="fa fa-3x fa-utensils text-primary "></i>
                                 <h5>Menu</h5>
                                 <p>Kelola Menu</p>
-                                <a href="<?=base_url('')?>" type="button" class="btn btn-success me-1">
+                                <a href="<?=base_url('menu')?>" type="button" class="btn btn-success me-1">
                                     <i class="fa fa-arrow-right"></i>
                                 </a>
                             </div>
