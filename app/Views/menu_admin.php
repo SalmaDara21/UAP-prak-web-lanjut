@@ -82,9 +82,8 @@
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Menu</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+                           
+                            <li class="breadcrumb-item text-white active" aria-current="page">Admin</li>
                         </ol>
                     </nav>
                 </div>
@@ -99,140 +98,25 @@
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Menu</h5>
                     <h1 class="mb-5">Our Signature</h1>
-                    <a href="" class="btn btn-primary py-2 px-4">Order Menu</a>
+                    <a href="/admin/menu/create" class="btn btn-primary py-2 px-4">Tambah Data</a>
                 </div>
                 <br>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
                     <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
-                                <i class="fa fa-coffee fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <small class="text-body">Cofee & Non Cofee</small>
-                                    <h6 class="mt-n1 mb-0">Drink</h6>
-                                </div>
-                            </a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                                <i class="fa fa-hamburger fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <small class="text-body">Heavy Meal</small>
-                                    <h6 class="mt-n1 mb-0">Meal</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
                                 <i class="fa fa-utensils fa-2x text-primary"></i>
                                 <div class="ps-3">
-                                    <small class="text-body">Sweet</small>
-                                    <h6 class="mt-n1 mb-0">Desert</h6>
+                                    <small class="text-body">Drink & Food</small>
+                                    <h6 class="mt-n1 mb-0">Sanara Cafe</h6>
                                 </div>
                             </a>
                         </li>
+                    
                     </ul>
                     <div class="tab-content">
-                        <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/americano.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Americano</span>
-                                                <span class="text-primary">18.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Ice & Hot</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/cappucino.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Cappucino</span>
-                                                <span class="text-primary">22.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Ice & Hot</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/caramel-machiato.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Caramel Machiato</span>
-                                                <span class="text-primary">23.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Ice & Hot</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/latte.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Latte</span>
-                                                <span class="text-primary">22.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Ice & Hot</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/matcha-latte.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Matcha Latte</span>
-                                                <span class="text-primary">21.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Ice & Hot</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/mocha.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Mocha</span>
-                                                <span class="text-primary">22.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Ice & Hot</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/rv-ice.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Red Velvet Latte</span>
-                                                <span class="text-primary">21.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Ice & Hot</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/taro-ice.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Taro Latte</span>
-                                                <span class="text-primary">21.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Ice & Hot</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="row g-4">
                                 <div class="col-lg-6">
@@ -328,106 +212,6 @@
                                                 <span class="text-primary">15.000</span>
                                             </h5>
                                             <small class="fst-italic">Chocolate, Keju, Matcha, Tiramisu.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tab-3" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/brownies.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Brownies</span>
-                                                <span class="text-primary">10.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Brownies coklat yang manis</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/cheesecake-berry.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Cheese Cake</span>
-                                                <span class="text-primary">18.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Cheese cake dengan toping berry sauce</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/cookies.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Cookies</span>
-                                                <span class="text-primary">10.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Keju, Chocolate, Matcha</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/cupcake.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Cupcake</span>
-                                                <span class="text-primary">13.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Starwberry, Chocolate, Matcha, Taro, Rainbow</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/lotus-cake.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Lotus Cake</span>
-                                                <span class="text-primary">18.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Lotus cake dengan toping lotus</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/matcha-crepes.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Crepes</span>
-                                                <span class="text-primary">15.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Matcha, Chocolate, Red Velvet, Tiramisu, Oreo</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/mochi.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Mochi</span>
-                                                <span class="text-primary">5.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Strawberry, Matcha, Chocolate, Cofee, Tiramisu</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="/assets/img/tiramisu.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Tiramisu</span>
-                                                <span class="text-primary">18.000</span>
-                                            </h5>
-                                            <small class="fst-italic">Tiramisu Cake</small>
                                         </div>
                                     </div>
                                 </div>

@@ -39,5 +39,6 @@ class Home extends BaseController
 
         return view('menu', $data);
     }
+    
 
 }
