@@ -3,17 +3,21 @@
 namespace App\Controllers;
 
 use Myth\Auth\Models\UserModel;
+use App\Models\InventarisModel;
 
 class User extends BaseController
 {
+    public $invetorisModel;
     public $userModel;
     public function __construct(){
         $this->userModel = new UserModel();
+        $this->invetorisModel=new InventarisModel();
     }
     public function index(): string
     {
         $data = [
-            'title' => 'User'
+            'title' => 'User',
+            'inventaris' => $this->invetorisModel->getInventaris(),
         ];
         return view('Dashboard_admin',$data);
     }
