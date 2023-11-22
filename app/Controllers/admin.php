@@ -15,6 +15,7 @@ class Admin extends BaseController
 
         $data = [
             'title' => 'Admin',
+            'inventaris' => $this->invetorisModel->getInventaris(),
         ];
 
         return view('Dashboard_admin',$data);

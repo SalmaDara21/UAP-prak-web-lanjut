@@ -38,12 +38,8 @@
         </div>
         <!-- Navbar & Hero End -->
 
-
-        
-
-
-        <!-- Menu Start -->
-        <div class="container-xxl py-5">
+<!-- Menu Start -->
+<div class="container-xxl py-5">
             <div class="container my-5 py-5">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">List Cafe</h5>
@@ -296,6 +292,10 @@
             </div>
         </div>
         <!-- Menu End -->
+        
+
+
+        
 
         <!-- Service Start -->
         <div class="container-xxl pt-1 ">

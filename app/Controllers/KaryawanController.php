@@ -11,16 +11,28 @@ class KaryawanController extends BaseController
 
     public function pesanan(){
 
-        return view('karyawan_pesanan');
+        $data = [
+            'title' => 'Pesanan Karyawan',
+        ];
+
+        return view('karyawan_pesanan', $data);
     }
 
     public function menu(){
 
-        return view('karyawan_menu');
+        $data = [
+            'title' => 'Menu Karyawan',
+        ];
+
+        return view('karyawan_menu', $data);
     }
 
     public function riwayat(){
 
-        return view('karyawan_riwayat');
+        $data = [
+            'title' => 'Riwayat Karyawan',
+        ];
+
+        return view('karyawan_riwayat', $data);
     }
 }

@@ -13,13 +13,27 @@ class User extends BaseController
         $this->userModel = new UserModel();
         $this->invetorisModel=new InventarisModel();
     }
-    public function index(): string
+    public function index()
     {
+        // $data = [
+        //     'title' => 'User',
+        //     'inventaris' => $this->invetorisModel->getInventaris(),
+        // ];
+        // return view('menu',$data);
+
         $data = [
-            'title' => 'User',
-            'inventaris' => $this->invetorisModel->getInventaris(),
-        ];
-        return view('Dashboard_admin',$data);
+                'inventaris' => $this->invetorisModel->getInventaris(),
+            ];
+
+        $path="menu";
+        if (in_groups("admin")){
+            $path= "admin";
+        }else if(in_groups("user")){
+            $path= "menu-awal";
+        }else if(in_groups("karyawan")){
+            $path= "karyawan_menu";
+        }
+        return redirect()->route($path, $data);
     }
 
     public function profile()
