@@ -41,6 +41,46 @@ class User extends BaseController
         $data['title'] = 'My Profile';
         return view('profile', $data);
     }
+    public function booking()
+    {
+        $data=[
+            'title'=>'Booking',
+            'inventaris' => $this->invetorisModel->getInventaris(),
+            ];
+        return view('booking', $data);
+    }
+
+    public function updateBookingTable(){
+        $postData = file_get_contents("php://input");
+        // Jika datanya ada
+        if (!empty($postData)) {
+            // Mendekode data JSON yang diterima
+            $decodedData = json_decode($postData, true);
+
+            // Mengekstrak nilai selectedSeats dari data yang diterima
+            $selectedSeats = $decodedData['selectedSeats'];
+            
+            // Lakukan operasi atau manipulasi data yang diterima sesuai kebutuhanmu
+            // Misalnya, menambahkannya ke dalam database atau melakukan operasi lainnya
+            // ...
+            
+            // Memberi respons atau pesan bahwa data berhasil diterima
+            echo 'Data berhasil diterima di PHP';
+        } else {
+            // Jika data tidak ditemukan
+            echo 'Data tidak ditemukan';
+        }
+        $data=[
+            'Booked'=>1,
+        ];
+        foreach($selectedSeats as $seat){
+            $result=$this->invetorisModel->updateInventaris($data,$seat);
+            if(!$result){
+                return redirect()->back()->withInput()->with('error','Gagal Menyimpan data');
+            }
+        }
+        
+    }
 
     public function edit() {
 

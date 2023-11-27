@@ -13,6 +13,10 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'User::index');
+$routes->get('/booking', 'User::booking');
+$routes->get('/app/Controllers/User.php', 'User::updateBookingTable');
+$routes->post('/app/Controllers/User.php', 'User::updateBookingTable');
+
 $routes->get('/test', 'Home::test');
 $routes->get('/karyawan-pesanan', [KaryawanController::class, 'pesanan']);
 $routes->get('/karyawan-menu', [KaryawanController::class, 'menu']);
