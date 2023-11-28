@@ -5,6 +5,10 @@
   --dark: #0f172b;
 }
 
+.nav nav-pills d-inline-flex justify-content-center border-bottom mb-5 {
+      display: none;
+  }
+
 
 .ff-secondary {
   font-family: "Pacifico", cursive;

@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MenuModel extends Model
+class InventarisModel extends Model
 {
-    protected $table            = 'menu';
+    protected $table            = 'inventaris';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'harga', 'foto'];
+    protected $allowedFields    = ['nama', 'barang', 'stok'];
 
     // Dates
     protected $useTimestamps = false;
@@ -38,34 +38,23 @@ class MenuModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getMenu($id = null)
+    public function getInventaris($id = null)
     {
         if ($id != null){
-            return $this->select('menu.*, menu.id, menu.nama, menu.harga') -> find($id);
+            return $this->select('inventaris.*, inventaris.id, inventaris.nama, inventaris.barang, inventaris.stok') -> find($id);
         }
-        return $this->select('menu.* , menu.id, menu.nama, menu.harga') -> findAll();
+        return $this->select('inventaris.* , inventaris.id, inventaris.nama, inventaris.barang, inventaris.stok') -> findAll();
     }
 
-    public function saveMenu($data){
+    public function saveInventaris($data){
         $this->insert($data);
     }
 
-    public function updateMenu($data, $id){
+    public function updateInventaris($data, $id){
         return $this->update($id, $data);
     }
 
-    public function deleteMenu($id){
+    public function deleteInventaris($id){
         return $this->delete($id);
     }
-
-    // public function find($id){
-    //     $result = $this->db->where('nama', $id)
-    //                         ->limit(1)
-    //                         ->get('tb_barang');
-    //         if($result->num_rows() > 0){
-    //             return $result->row();
-    //         }else{
-    //             return array();
-    //         }
-    // }
 }

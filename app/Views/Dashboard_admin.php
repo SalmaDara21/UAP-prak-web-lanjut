@@ -399,7 +399,7 @@
                                 <i class="fa fa-3x fa-cart-plus text-primary "></i>
                                 <h5>Stok dan Inventaris</h5>
                                 <p>Kelola Stok & Inventaris</p>
-                                <a href="<?=base_url('')?>" type="button" class="btn btn-success me-1">
+                                <a href="<?=base_url('inventaris')?>" type="button" class="btn btn-success me-1">
                                     <i class="fa fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -485,7 +485,7 @@
             <div  class="container mb-3 ">
                     <h1 >Laporan Penjualan</h1>
                 </div>
-            <table class="table table-bordered">
+            <!-- <table class="table table-bordered">
                 <thead>
                     <tr>
                     <th scope="col">Pendapatan</th>
@@ -506,9 +506,9 @@
                     <td>2.000.000.000</td>
                     </tr>
                 </tbody>
-                </table>
+                </table> -->
                 <div class="text-center pt-3">
-                    <a href="">Kelola laporan penjualan ></a>
+                    <a href="<?=base_url('laporan')?>">Kelola laporan penjualan ></a>
                 </div>
             </div>
         </div>
