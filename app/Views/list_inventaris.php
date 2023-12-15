@@ -49,13 +49,13 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
                     </div>
-                    <a href="/admin/menu/create" class="btn btn-primary py-2 px-4">Tambah Data</a>
+                    <a href="/inventaris/create" class="btn btn-primary py-2 px-4">Tambah Data</a>
                 </div>
             </nav>
 
             <div class="container-xxl py-5 bg-dark hero-header mb-5">
                 <div class="container text-center my-5 pt-5 pb-4">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">List Menu</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">List Inventaris</h1>
                 </div>
             </div>
         </div>
@@ -66,9 +66,9 @@
 <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Menu</h5>
-                    <h1 class="mb-5">Our Signature</h1>
-                    <a href="/admin/menu/create" class="btn btn-primary py-2 px-4">Tambah Data</a>
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Stok</h5>
+                    <h1 class="mb-5">Barang Inventaris</h1>
+                    <a href="/inventaris/create" class="btn btn-primary py-2 px-4">Tambah Data</a>
                 </div>
                 <br>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -76,9 +76,9 @@
                         
                         <li class="nav-item">
                             <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <i class="fa fa-3x fa-cart-plus text-primary"></i>
                                 <div class="ps-3">
-                                    <small class="text-body">Drink & Food</small>
+                                    <small class="text-body">Stok & Inventaris</small>
                                     <h6 class="mt-n1 mb-0">Sanara Cafe</h6>
                                 </div>
                             </a>
@@ -96,35 +96,39 @@
                                                     <tr class="table-danger">
                                                         <th>ID</th>
                                                         <th>Nama</th>
-                                                        <th>Harga</th>
-                                                        <th>foto</th>
+                                                        <th>Barang</th>
+                                                        <th>Stok</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                             <tbody>
                                                 <?php
-                                                foreach ($menus as $menu){
+                                                foreach ($inventarist as $inventaris){
                                                     ?>
                                                     <tr class="table-menu">
-                                                        <td><span class="fst-italic"><?= $menu['id'] ?></span></td>
+                                                        <td><span class="fst-italic"><?= $inventaris['id'] ?></span></td>
 
                                                         <td>
                                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                            <span align="center"><?= $menu['nama'] ?></span>
+                                                            <span align="center"><?= $inventaris['nama'] ?></span>
                                                             </h5> 
                                                         </td>
 
                                                         <td>
                                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                            <span align="center" class="text-primary"><?= $menu['harga'] ?>
+                                                            <span align="center" class="text-primary"><?= $inventaris['barang'] ?>
                                                             </h5> 
                                                         </td>
 
-                                                        <td><img src="<?= $menu['foto'] ?? '<default-foto>' ?>" width="60" height="80"></td>
                                                         <td>
-                                                        <a href="<?= base_url('menu/' . $menu['id'] . '/edit') ?>" type="button" class="btn btn-info">Edit</a>
+                                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                            <span align="center" class="text-primary"><?= $inventaris['stok'] ?>
+                                                            </h5> 
+                                                        </td>
+                                                        <td>
+                                                        <a href="<?= base_url('inventaris/' . $inventaris['id'] . '/edit') ?>" type="button" class="btn btn-info">Edit</a>
                                                         <p>
-                                                        <form action="<?= base_url('menu/' . $menu['id']) ?>" method="post">
+                                                        <form action="<?= base_url('inventaris/' . $inventaris['id']) ?>" method="post">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <?= csrf_field() ?>
                                                         <button type="submit" class="btn btn-danger">Delete</button>

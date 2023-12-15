@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="<?= base_url('/assets/css/style.css') ?>" rel="stylesheet">
+
 </head>
 <body>
     <?= $this->renderSection('content') ?>
@@ -47,6 +48,12 @@
 
     <!-- Template Javascript -->
     <script src="<?= base_url('/assets/js/main.js') ?>"></script>
+
+    <style>
+            .nav nav-pills d-inline-flex justify-content-center border-bottom mb-5 {
+                display: none;
+            }
+    </style>
 
 </body>
 </html>

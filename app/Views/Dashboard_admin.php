@@ -417,7 +417,7 @@
             <div  class="container mb-3 ">
                     <h1 >Laporan Penjualan</h1>
                 </div>
-            <table class="table table-bordered">
+            <!-- <table class="table table-bordered">
                 <thead>
                     <tr>
                     <th scope="col">Pendapatan</th>
@@ -438,9 +438,9 @@
                     <td>2.000.000.000</td>
                     </tr>
                 </tbody>
-                </table>
+                </table> -->
                 <div class="text-center pt-3">
-                    <a href="">Kelola laporan penjualan ></a>
+                    <a href="<?=base_url('laporan')?>">Kelola laporan penjualan ></a>
                 </div>
             </div>
         </div>
