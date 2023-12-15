@@ -29,6 +29,7 @@
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Testimoni</a>
                         <a href="service.html" class="nav-item nav-link">Keluhan</a>
+                        <a href="<?= base_url('/user_list');?>" class="nav-item nav-link">List User</a>
                     </div>
                     <a href="<?= base_url('logout');?>" class="btn btn-primary py-2 px-4">Logout</a>
                 </div>
@@ -37,12 +38,8 @@
         </div>
         <!-- Navbar & Hero End -->
 
-
-        
-
-
-        <!-- Menu Start -->
-        <div class="container-xxl py-5">
+<!-- Menu Start -->
+<div class="container-xxl py-5">
             <div class="container my-5 py-5">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">List Cafe</h5>
@@ -265,94 +262,25 @@
                         </div>
                         <div id="tab-3" class="tab-pane fade show p-0">
                             <div class="row g-4">
+                                <?php
+                                    foreach($inventaris as $i){
+                                ?>
                                 <div class="col-lg-6">
                                     <div class="d-flex align-items-center">
                                         <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="" style="width: 80px;">
                                         <div class="w-100 d-flex flex-column text-start ps-4">
                                             <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                
+                                            <span><?= $i['nama_inventaris']?></span>
+                                                <span class="text-primary"><?= ($i['Booked']==0)? 'Tersedia' : 'Booked';?></span>
                                             </h5>
-                                             
+                                             <small class="fst-italic">Jumlah Kursi : <?= $i['jumlah_kursi']?></small>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-2.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                 
-                                            </h5>
-                                             
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-3.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                
-                                            </h5>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-4.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                 
-                                            </h5>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-5.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                 
-                                            </h5>
-                                             
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-6.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                 
-                                            </h5>
-                                             
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-7.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                 
-                                            </h5>
-                                             
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-8.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                 
-                                            </h5>
-                                             
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php
+                                    }
+                                ?>
+                                
                             </div>
                         </div>
                         <div class="text-center pt-5">
@@ -364,6 +292,10 @@
             </div>
         </div>
         <!-- Menu End -->
+        
+
+
+        
 
         <!-- Service Start -->
         <div class="container-xxl pt-1 ">
@@ -399,7 +331,7 @@
                                 <i class="fa fa-3x fa-cart-plus text-primary "></i>
                                 <h5>Stok dan Inventaris</h5>
                                 <p>Kelola Stok & Inventaris</p>
-                                <a href="<?=base_url('inventaris')?>" type="button" class="btn btn-success me-1">
+                                <a href="<?=base_url('/admin/stok_inventaris')?>" type="button" class="btn btn-success me-1">
                                     <i class="fa fa-arrow-right"></i>
                                 </a>
                             </div>

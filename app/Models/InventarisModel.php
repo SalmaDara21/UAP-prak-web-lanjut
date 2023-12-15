@@ -12,17 +12,31 @@ class InventarisModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'barang', 'stok'];
+
+    protected $allowedFields    = ['Booked','jumlah_kursi','nama_inventaris'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $updatedField  = 'update_at';
+    protected $deletedField  = 'delete_at';
 
     // Validation
-    protected $validationRules      = [];
+    protected $validationRules      = [
+        'nama_inventaris'=>[
+        'rules'=>'required',
+        'errors'=>[
+            'required'=> '{field} tidak valid'
+        ]
+    ],
+    'jumlah_kursi'=>[
+        'rules'=>'required',
+        'errors'=>[
+            'required'=> '{field} tidak valid'
+        ]
+    ],
+];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
@@ -38,23 +52,20 @@ class InventarisModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getInventaris($id = null)
-    {
-        if ($id != null){
-            return $this->select('inventaris.*, inventaris.id, inventaris.nama, inventaris.barang, inventaris.stok') -> find($id);
+    public function getInventaris($id=null){
+        if($id!=null){
+            return $this->find($id);
         }
-        return $this->select('inventaris.* , inventaris.id, inventaris.nama, inventaris.barang, inventaris.stok') -> findAll();
+        return $this->findAll();
     }
 
+    public function destroy($id){
+        return $this->delete($id);
+    }
+    public function updateInventaris($data,$id){
+        return $this->update($id,$data);
+    }
     public function saveInventaris($data){
         $this->insert($data);
-    }
-
-    public function updateInventaris($data, $id){
-        return $this->update($id, $data);
-    }
-
-    public function deleteInventaris($id){
-        return $this->delete($id);
     }
 }

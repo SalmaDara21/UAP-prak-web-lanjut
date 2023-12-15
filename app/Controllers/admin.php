@@ -1,17 +1,21 @@
 <?php
 
 namespace App\Controllers;
-
-
+use App\Models\InventarisModel;
 
 
 class Admin extends BaseController
 {
+    public $invetorisModel;
+    public function __construct(){
+        $this->invetorisModel=new InventarisModel();
+    }
     public function index(): string
     {
 
         $data = [
             'title' => 'Admin',
+            'inventaris' => $this->invetorisModel->getInventaris(),
         ];
 
         return view('Dashboard_admin',$data);
@@ -57,5 +61,44 @@ class Admin extends BaseController
         }
 
         return view('detail',$data);
+    }
+
+    public function stok_inventaris(){
+        $data = [
+            'title' => 'Stok Inventaris',
+            'inventaris' => $this->invetorisModel->getInventaris(),
+        ];
+        return view('stok_inventaris',$data);
+    }
+    public function destroy_inventaris($id){
+        $result= $this->invetorisModel->destroy($id);
+        if(!$result) {
+            return redirect()->back()->with('error','Gagal Menghapus Data');
+        }
+        return redirect()->to(base_url('/admin/stok_inventaris'));
+    }
+    public function update_inventaris($id){
+        $data=[
+            'jumlah_kursi'=>$this->request->getVar('jumlah_kursi'),
+        ];
+        $result=$this->invetorisModel->updateInventaris($data,$id);
+        if(!$result){
+            return redirect()->back()->withInput()->with('error','Gagal Menyimpan data');
+        }
+
+        return redirect()->to(base_url('/admin/stok_inventaris'));
+    }
+    public function store_inventaris(){
+        if(!$this->validate($this->invetorisModel->getValidationRules())){
+            session()->setFlashdata('errors',$this->validator->listErrors());
+            return redirect()->back()->withInput();
+        }
+        $this->invetorisModel->saveInventaris([
+            'nama_inventaris'=> $this->request->getVar('nama_inventaris'),
+            'jumlah_kursi'=> $this->request->getVar('jumlah_kursi'),
+        ]);
+        session()->setFlashdata('success','data berhasil ditambahkan');
+
+        return redirect()->to('/admin/stok_inventaris');
     }
 }
