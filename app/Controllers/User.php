@@ -28,10 +28,10 @@ class User extends BaseController
         $path="menu";
         if (in_groups("admin")){
             $path= "admin";
+        }else if(in_groups("pelayan")){
+            $path= "karyawan-pesanan";
         }else if(in_groups("user")){
             $path= "menu-awal";
-        }else if(in_groups("karyawan")){
-            $path= "karyawan_menu";
         }
         return redirect()->route($path, $data);
     }

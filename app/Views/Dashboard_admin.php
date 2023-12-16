@@ -26,13 +26,12 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Testimoni</a>
-                        <a href="service.html" class="nav-item nav-link">Keluhan</a>
-                        <a href="<?= base_url('/user_list');?>" class="nav-item nav-link">List User</a>
-                    </div>
-                    <a href="<?= base_url('logout');?>" class="btn btn-primary py-2 px-4">Logout</a>
-                </div>
+                        <a href="<?= base_url('/user_list');?>" class="nav-item nav-link">Kelola Karyawan</a>
+                    <!-- </div>
+                    <a href="#" class="btn btn-primary py-2 px-4">Logout</a>
+                </div> -->
+                        <a href="<?= base_url('logout') ?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt">Logout</i></a>
             </nav>
 
         </div>

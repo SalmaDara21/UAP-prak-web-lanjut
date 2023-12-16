@@ -25,12 +25,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="<?= base_url('/karyawan-menu') ?>" class="nav-item nav-link">Home</a>
+                        <a href="<?= base_url('/karyawan-profile') ?>" class="nav-item nav-link">Profile</a>
                         <a href="<?= base_url('/karyawan-pesanan') ?>" class="nav-item nav-link">Pesanan</a>
-                        <a href="<?= base_url('/karyawan-riwayat') ?>" class="nav-item nav-link">Riwayat</a>
-                    </div>
-                    <a href="<?= base_url('logout');?>" class="btn btn-primary py-2 px-4">Logout</a>
-                </div>
+                        <a href="<?= base_url('/karyawan-riwayat') ?>" class="nav-item nav-link active">Riwayat</a>
+                    <!-- </div>
+                    <a href="#" class="btn btn-primary py-2 px-4">Logout</a>
+                </div> -->
+                <a href="<?= base_url('logout') ?>" class="nav-item nav-link"><i class="fa fa-sign-out"> logout</i></a>
             </nav>
 
         </div>
