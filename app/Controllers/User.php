@@ -34,7 +34,7 @@ class User extends BaseController
         }else if(in_groups("pelayan")){
             $path= "karyawan-pesanan";
         }else if(in_groups("user")){
-            $path= "menu-awal";
+            $path= "booking";
         }
         return redirect()->route($path, $data);
     }
@@ -75,6 +75,7 @@ class User extends BaseController
         }
         $data=[
             'Booked'=>1,
+            'seat'=>$selectedSeats,
         ];
         foreach($selectedSeats as $seat){
             $result=$this->invetorisModel->updateInventaris($data,$seat);
@@ -82,6 +83,7 @@ class User extends BaseController
                 return redirect()->back()->withInput()->with('error','Gagal Menyimpan data');
             }
         }
+        return view('menu',$data);
         
     }
 

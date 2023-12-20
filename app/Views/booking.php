@@ -106,12 +106,25 @@ document.getElementById('saveBooking').addEventListener('submit', function(event
     if (xhr.readyState === 4 && xhr.status === 200) {
       // Proses respons dari controller PHP
       console.log(xhr.responseText);
+      
 
-      window.location.href = "/";
     }
   };
 
   xhr.send(data);
+  var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/menu-awal';
+
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'seat';
+        input.value = data;
+
+        form.appendChild(input);
+        document.body.appendChild(form);
+
+        form.submit();
   // document.getElementById('saveBooking').submit();
 });
 

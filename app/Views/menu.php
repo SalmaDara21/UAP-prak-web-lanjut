@@ -1,7 +1,6 @@
 <?= $this->extend('layouts/app') ?>
 
 <?= $this->section('content') ?>
-
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -58,6 +57,12 @@
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Menu</h5>
                     <h1 class="mb-5">Our Signature</h1>
                     <button class="btn btn-primary py-2 px-4" type="submit">Order Menu</button>
+                    <?php
+                        foreach($seat as $i){?>
+                            <input type="hidden" name="seat[]" value=<?=$i?>>
+                        <?php
+                        }
+                    ?>
                 </div>
                 <br>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">

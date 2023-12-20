@@ -86,7 +86,7 @@
         <!-- Menu Start -->
         <div class="container-xxl py-5">
             <div class="container my-5 py-5">
-            <form action="<?= base_url('/menu-awal')?>" method="Get">
+            <form action="<?= base_url('/menu-awal/pesan/submit')?>" method="POST">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Pesan</h5>
                     <h1 class="mb-5">Rincian Pemesanan</h1>
@@ -101,6 +101,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                 <h5>Pesanan oleh : <?php echo user()->fullname?? 'No Data';?></h5>
+                                <h3>meja : <?php foreach($seat as $i) echo $i.' '?? 'No Data';?></h3>
                                 </li>
 
                                 <?php foreach($menu as $i){?>
@@ -125,7 +126,7 @@
                                 <li class="list-group-item ">
                                 <h5>Harga</h5>
                                 </li>
-
+                                <li class="list-group-item mt-1 mb-1 px-4"><h3> </h3></li>                                </li>
                                 <?php $totalHarga=0;
                                     foreach($menu as $i){
                                 ?>
@@ -144,8 +145,20 @@
                         </div>
                         </div>
             </div>
+            
+            <?php foreach($seat as $i): ?>
+                <input type="hidden" name="seat[]" value=<?= $i ?>>
+            <?php endforeach; ?>
+            <?php foreach($count as $i): ?>
+                <input type="hidden" name="count[]" value=<?=$i?>>
+            <?php endforeach; ?>
+            <?php foreach($menu as $i): ?>
+                <input type="hidden" name="menu[]" value=<?=$i['nama']?>>
+            <?php endforeach; ?>
+            <input type="hidden" name="name" value=<?=user()->fullname?>>
+            <input type="hidden" name="harga" value=<?=$totalHarga*1000?>>
             </form>
-            <a href="<?= base_url('/menu-awal')?>" type="button" class="btn btn-danger ms-5">Kembali</a>
+        
         </div>
         <!-- Menu End -->
         <h5 class="text-primary mt-1 ms-5">Klik Tombol CONFIRM ORDER ya!</h5>
