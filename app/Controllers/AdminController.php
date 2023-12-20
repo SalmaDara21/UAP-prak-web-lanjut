@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\MenuModel;
 use App\Models\InventarisModel;
 use App\Models\LaporanModel;
+use App\Models\TestimoniModel;
 use App\Controllers\BaseController;
 
 
@@ -12,11 +13,14 @@ class AdminController extends BaseController{
     public $menuModel;
     public $InventarisModel;
 
+    public $testimoniModel;
+
     public function __construct()
     {
         $this->menuModel = new MenuModel();
         $this->InventarisModel = new InventarisModel();
         $this->LaporanModel = new LaporanModel();
+        $this->testimoniModel=new TestimoniModel();
     }
 
     public function index()
@@ -299,4 +303,14 @@ class AdminController extends BaseController{
         ->with('success', 'Berhasil Menghapus Data');
     }
     
+    public function admin_testimoni() {
+        $testimoni = $this->testimoniModel->getTestimoni();
+        
+        $data = [
+            'title' => 'Admin_Testimoni',
+            'testimoni' => $testimoni
+        ];
+
+        return view ('admin_testimoni', $data);
+    }
 }

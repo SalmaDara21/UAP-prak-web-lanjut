@@ -32,6 +32,7 @@ $routes->get('/menu-admin-awal', [AdminController::class, 'menu_admin']);
 $routes->get('/admin', 'Admin::index',['filter'=> 'role:admin']);
 $routes->get('/admin/index', 'Admin::index',['filter'=> 'role:admin']);
 $routes->get('/user_list', 'Admin::user_list',['filter'=> 'role:admin']);
+$routes->get('/admin_testimoni', 'AdminController::admin_testimoni',['filter'=> 'role:admin']);
 $routes->get('/admin/(:num)', 'Admin::detail/$1');
 $routes->get('/admin/stok_inventaris', 'Admin::stok_inventaris');
 $routes->get('/profile', 'User::profile');
@@ -40,6 +41,8 @@ $routes->post('/profile/update', 'User::update');
 $routes->post('/inventaris/store',[Admin::class,'store_inventaris']);
 $routes->put('/inventaris/update/(:any)',[Admin::class,'update_inventaris']);
 $routes->delete('/inventaris/(:any)',[Admin::class,'destroy_inventaris']);
+
+$routes->get('/testimoni', 'User::testimoni',['filter'=> 'role:user']);
 
 
 $routes->get('/admin/menu/create', [AdminController::class, 'create']);

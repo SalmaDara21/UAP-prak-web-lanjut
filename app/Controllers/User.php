@@ -4,14 +4,17 @@ namespace App\Controllers;
 
 use Myth\Auth\Models\UserModel;
 use App\Models\InventarisModel;
+use App\Models\TestimoniModel;
 
 class User extends BaseController
 {
     public $invetorisModel;
     public $userModel;
+    public $testimoniModel;
     public function __construct(){
         $this->userModel = new UserModel();
         $this->invetorisModel=new InventarisModel();
+        $this->testimoniModel=new TestimoniModel();
     }
     public function index()
     {
@@ -120,20 +123,19 @@ class User extends BaseController
 
         $foto = $this->request->getFile('user_image');
 
+        $data = [
+            'fullname' => $this->request->getPost('fullname'),
+            // 'user_image' => $foto_path
+        ];
+
         if ($foto->isValid()) {
             $name = $foto->getRandomName();
 
             if ($foto->move($path, $name)) {
                 $foto_path = base_url($path . $name);
-                user()->user_image = $foto_path;
+                $data['user_image'] = $foto_path;
             }
         }
-
-
-        $data = [
-            'fullname' => $this->request->getPost('fullname'),
-            'user_image' => $foto_path
-        ];
         
 
         if(!$this->userModel->update(user()->id,$data)){
@@ -147,5 +149,16 @@ class User extends BaseController
         session()->set('LoggedUserData', $find);
         session()->setFlashdata("Success", "profile update success");
         return redirect()->to(base_url()."profile");
+    }
+
+    public function testimoni() {
+        $testimoni = $this->testimoniModel->getTestimoni();
+        
+        $data = [
+            'title' => 'Testimoni',
+            'testimoni' => $testimoni
+        ];
+
+        return view ('user_testimoni', $data);
     }
 }

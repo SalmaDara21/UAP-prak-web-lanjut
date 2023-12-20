@@ -28,7 +28,7 @@
                         <a href="<?= base_url('/karyawan-profile') ?>" class="nav-item nav-link">Profile</a>
                         <a href="<?= base_url('/karyawan-pesanan') ?>" class="nav-item nav-link active">Pesanan</a>
                         <a href="<?= base_url('/karyawan-riwayat') ?>" class="nav-item nav-link">Riwayat</a>
-                        <a href="<?= base_url('logout') ?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt">Logout</i></a>
+                        <a href="<?= base_url('logout') ?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </nav>
 
         </div>
