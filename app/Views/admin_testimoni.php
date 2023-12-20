@@ -38,32 +38,37 @@
         <!-- Navbar & Hero End -->
 
          <!-- Menu Start -->
-        <div class="container-xxl py-5">
+         <div class="container-xxl py-5">
             <div class="container my-5 py-5">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="mb-5">Testimoni</h1>
                 </div>
-            </div>
-            <div id="tab-1" class="tab-pane fade show p-0 active">
-                        <table class="table">
+                    <div>
+                            <div  style="max-width: 100%; margin-left: auto; margin-right: auto; display:flex; justify-content:center; align-items: center;">
+                                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100" >
+                                <table class="table table-hover" style="table-layout: auto; width:100%">
                             <thead>
-                                <tr>
-                                    <th>Pesan</th>
+                                <tr class="bg-warning">
                                     <th>Username</th>
+                                    <th>Pesan</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i=1; ?>
                                 <?php foreach($testimoni as $testimonis) : ?>
                                 <tr>
-                                    <td><?= $testimonis['pesan'] ?></td>
                                     <td><?= $testimonis['username'] ?></td>
+                                    <td><?= $testimonis['pesan'] ?></td>
                                 </tr>
                                 <?php endforeach ?>
                             </tbody>
                             </table>
-                        </div>
+                                </div>
+                            </div>
+                        </div> 
+            </div>
         </div>
+
         <!-- Menu End -->                       
 
 

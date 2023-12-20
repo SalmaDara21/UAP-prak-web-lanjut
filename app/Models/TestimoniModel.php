@@ -38,6 +38,10 @@ class TestimoniModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    public function saveTestimoni($data){
+        $this->insert($data);
+    }
+
     public function getTestimoni($id = null){
         if ($id != null) {
 
