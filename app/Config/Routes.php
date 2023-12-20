@@ -22,6 +22,7 @@ $routes->get('/karyawan-pesanan', [KaryawanController::class, 'pesanan']);
 $routes->get('/karyawan-menu', [KaryawanController::class, 'menu']);
 $routes->get('/karyawan-riwayat', [KaryawanController::class, 'riwayat']);
 $routes->get('/menu-awal', 'Home::menu');
+$routes->post('/menu-awal/pesan', 'Home::pesan');
 $routes->get('/menu-admin-awal', [AdminController::class, 'menu_admin']);
 // $routes->get('/test', [Home::class, 'test']);
 $routes->get('/admin', 'Admin::index',['filter'=> 'role:admin']);

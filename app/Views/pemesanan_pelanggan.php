@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/app') ?>
+<?= $this->extend('layouts/app_admin') ?>
 
 <?= $this->section('content') ?>
 
@@ -79,148 +79,76 @@
                 </div>
             </nav>
 
-            <div class="container-xxl py-5 bg-dark hero-header mb-5">
-                <div class="container text-center my-5 pt-5 pb-4">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Menu</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
         </div>
         <!-- Navbar & Hero End -->
 
 
         <!-- Menu Start -->
         <div class="container-xxl py-5">
-            <div class="container">
-            <form action="<?= base_url('/menu-awal/pesan')?>" method="POST">
+            <div class="container my-5 py-5">
+            <form action="<?= base_url('/menu-awal')?>" method="Get">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Menu</h5>
-                    <h1 class="mb-5">Our Signature</h1>
-                    <button class="btn btn-primary py-2 px-4" type="submit">Order Menu</button>
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Pesan</h5>
+                    <h1 class="mb-5">Rincian Pemesanan</h1>
+                    <button class="btn btn-primary py-2 px-4" type="submit">Confirm Order</button>
                 </div>
                 <br>
-                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
-                                <i class="fa fa-coffee fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <small class="text-body">Cofee & Non Cofee</small>
-                                    <h6 class="mt-n1 mb-0">Drink</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                                <i class="fa fa-hamburger fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <small class="text-body">Heavy Meal</small>
-                                    <h6 class="mt-n1 mb-0">Meal</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
-                                <i class="fa fa-utensils fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <small class="text-body">Sweet</small>
-                                    <h6 class="mt-n1 mb-0">Desert</h6>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-                                <?php 
-                                    for($i=0;$i<8;$i++){
+
+                <div class="card mb-3" style="max-width: 540px; margin-left: auto; margin-right: auto">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                            <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                <h5>Pesanan oleh : <?php echo user()->fullname?? 'No Data';?></h5>
+                                </li>
+
+                                <?php foreach($menu as $i){?>
+                                    <li class="list-group-item">
+                                    <div class="d-flex justify-content-between">
+                                        <?=$i['nama']?>
+                                        <input class="number-input" type="number" min="0" value="<?=$count[$i['id']]?>" ></input>
+                                    </div> 
+                                    </li>
+                                <?php }?>
+
+                                <li class="list-group-item">
+                                    Total :
+                                </li>
+
+                            </ul>
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item ">
+                                <h5>Harga</h5>
+                                </li>
+
+                                <?php $totalHarga=0;
+                                    foreach($menu as $i){
                                 ?>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="<?=$menu[$i]['foto']?>.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span><?=$menu[$i]['nama']?></span>
-                                                <span class="text-primary"><?=$menu[$i]['harga']?>.000</span>
-                                            </h5>
-                                            <div class="d-flex justify-content-between">
-                                                <small class="fst-italic"><?=$menu[$i]['deskripsi']?></small>
-                                                <h6 class="text-primary ms-auto mt-1">Tambahkan ke List Order! -></h6>
-                                                <input class="number-input" type="number" min="0" value="0" name="<?=$menu[$i]['id']?>"></input>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                                    }
-                                ?>
+                                    <li class="list-group-item mt-1 mb-1">
+                                        <?=$i['harga']*$count[$i['id']]?>.000
+                                    </li>
+                                <?php $totalHarga += $i['harga']*$count[$i['id']];}?>
+
+                                <li class="list-group-item">
+                                    Rp. <?= $totalHarga?>.000,00 
+                                </li>
+
+                            </ul>
+                            </div>
                             </div>
                         </div>
-                        <div id="tab-2" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <?php 
-                                    for($i=8;$i<16;$i++){
-                                ?>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="<?=$menu[$i]['foto']?>.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span><?=$menu[$i]['nama']?></span>
-                                                <span class="text-primary"><?=$menu[$i]['harga']?>.000</span>
-                                            </h5>
-                                            <div class="d-flex justify-content-between">
-                                                <small class="fst-italic"><?=$menu[$i]['deskripsi']?></small>
-                                                <h6 class="text-primary ms-auto mt-1">Tambahkan ke List Order! -></h6>
-                                                <input class="number-input" type="number" min="0" value="0" name="<?=$menu[$i]['id']?>"></input>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                                    }
-                                ?>
-                            </div>
                         </div>
-                        <div id="tab-3" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <?php 
-                                    for($i=16;$i<24;$i++){
-                                ?>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="<?=$menu[$i]['foto']?>.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span><?=$menu[$i]['nama']?></span>
-                                                <span class="text-primary"><?=$menu[$i]['harga']?>.000</span>
-                                            </h5>
-                                            <div class="d-flex justify-content-between">
-                                                <small class="fst-italic"><?=$menu[$i]['deskripsi']?></small>
-                                                <h6 class="text-primary ms-auto mt-1">Tambahkan ke List Order! -></h6>
-                                                <input class="number-input" type="number" min="0" value="0" name="<?=$menu[$i]['id']?>"></input>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             </form>
+            <a href="<?= base_url('/menu-awal')?>" type="button" class="btn btn-danger ms-5">Kembali</a>
         </div>
         <!-- Menu End -->
-        <h5 class="text-primary mt-1 ms-5">Klik Tombol ORDER MENU setelah memilih ya!</h5>
+        <h5 class="text-primary mt-1 ms-5">Klik Tombol CONFIRM ORDER ya!</h5>
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">

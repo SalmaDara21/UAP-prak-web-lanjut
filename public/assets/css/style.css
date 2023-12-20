@@ -5,7 +5,6 @@
   --dark: #0f172b;
 }
 
-
 .ff-secondary {
   font-family: "Pacifico", cursive;
 }
@@ -468,4 +467,13 @@
   margin-right: 0;
   padding-right: 0;
   border-right: none;
+}
+
+.number-input {
+  width: 60px;
+  height: 30px;
+  color: #fea116;
+  font-weight: bold;
+  text-align: end;
+  border: none;
 }
