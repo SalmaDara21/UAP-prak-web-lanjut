@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MenuModel extends Model
+class TestimoniModel extends Model
 {
-    protected $table            = 'menu';
+    protected $table            = 'testimoni';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'harga', 'foto'];
+    protected $allowedFields    = ['pesan', 'id_users'];
 
     // Dates
     protected $useTimestamps = false;
@@ -38,34 +38,13 @@ class MenuModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getMenu($id = null)
-    {
-        if ($id != null){
-            return $this->select('menu.*, menu.id, menu.nama, menu.harga') -> find($id);
+    public function getTestimoni($id = null){
+        if ($id != null) {
+
+            return $this->select('testimoni.*, users.username')
+            ->join('users', 'users.id=testimoni.id_users')->find($id);
         }
-        return $this->select('menu.* , menu.id, menu.nama, menu.harga') -> findAll();
+        return $this->select('testimoni.*, users.username')
+            ->join('users', 'users.id=testimoni.id_users')->find();
     }
-
-    public function saveMenu($data){
-        $this->insert($data);
-    }
-
-    public function updateMenu($data, $id){
-        return $this->update($id, $data);
-    }
-
-    public function deleteMenu($id){
-        return $this->delete($id);
-    }
-
-    // public function find($id){
-    //     $result = $this->db->where('nama', $id)
-    //                         ->limit(1)
-    //                         ->get('tb_barang');
-    //         if($result->num_rows() > 0){
-    //             return $result->row();
-    //         }else{
-    //             return array();
-    //         }
-    // }
 }

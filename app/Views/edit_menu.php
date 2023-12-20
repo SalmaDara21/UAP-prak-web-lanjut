@@ -11,11 +11,11 @@
 
 <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Nama</span>
-            <input class="form-control" name="nama"  id="nama" type="text"  />
+            <input class="form-control" name="nama"  id="nama" type="text" value= "<?= $menu['nama']?>" />
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Harga</span>
-            <input class="form-control" name="harga" id="harga" type="number"  />
+            <input class="form-control" name="harga" id="harga" type="number" value= "<?= $menu['harga']?>" />
         </div>
         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
             <button class="btn btn-primary" name="submit" >Submit</button>

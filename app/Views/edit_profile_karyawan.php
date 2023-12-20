@@ -16,24 +16,21 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>SANARA CAFE</h1>
+                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Sanara Cafe</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
+                <div style="color:white">karyawan</div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="#" class="nav-item nav-link">Home</a>
-                        <a href="<?= base_url('profile') ?>" class="nav-item nav-link active">Profile</a>
-                        <a href="#" class="nav-item nav-link">About</a>
-                        <a href="#" class="nav-item nav-link">Service</a>
-                        <a href="<?= base_url('menu-awal');?>" class="nav-item nav-link">Menu</a>
-                        <a href="<?= base_url('logout');?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                    </div>
-                    <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
-                </div>
+                        <a href="<?= base_url('/karyawan-profile') ?>" class="nav-item nav-link active">Profile</a>
+                        <a href="<?= base_url('/karyawan-pesanan') ?>" class="nav-item nav-link">Pesanan</a>
+                        <a href="<?= base_url('/karyawan-riwayat') ?>" class="nav-item nav-link">Riwayat</a>
+                        <a href="<?= base_url('logout') ?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </nav>
+
         </div>
         <!-- Navbar & Hero End -->
 
@@ -51,7 +48,7 @@
                                     <div class="col-md-4">
                                     <img src="<?=  user()->user_image; ?>" class="img-fluid rounded-start" alt="<?= user()->username; ?>">
 
-                                        <form action="<?= base_url('profile/update') ?>" method="POST" enctype="multipart/form-data">
+                                        <form action="<?= base_url('/karyawan-profile/update-profile-karyawan') ?>" method="POST" enctype="multipart/form-data">
                                             <?= csrf_field() ?>
                                             <input type="hidden" id="fullname" name="id" value="<?= user()->fullname; ?>">
                                             
@@ -59,11 +56,11 @@
                                             <div class="col-md-8">
                                             <div class="card-body">
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"><h5>Fullname</h5><input type="text" id="fullname" name="fullname" value="<?= user()->fullname; ?>"></li>
+                                                <li class="list-group-item"><h5>Fullname</h5><input type="text" id="fullname" name="fullname" value="<?= user()->fullname; ?>" required></li>
                                             </ul>
                     
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"><h5>Foto</h5><input type="file" id="user_image" name="user_image" value=""></li>
+                                                <li class="list-group-item"><h5>Foto</h5><input type="file" id="user_image" name="user_image" value="<?= user()->user_image; ?>"></li>
                                             </ul>
                                             <br>
                                             <button type="submit" class="btn-info">Simpan</button>

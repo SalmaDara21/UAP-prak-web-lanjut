@@ -25,13 +25,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="<?= base_url('/karyawan-profile') ?>" class="nav-item nav-link">Profile</a>
+                        <a href="<?= base_url('/karyawan-profile') ?>" class="nav-item nav-link active">Profile</a>
                         <a href="<?= base_url('/karyawan-pesanan') ?>" class="nav-item nav-link">Pesanan</a>
-                        <a href="<?= base_url('/karyawan-riwayat') ?>" class="nav-item nav-link active">Riwayat</a>
-                    <!-- </div>
-                    <a href="#" class="btn btn-primary py-2 px-4">Logout</a>
-                </div> -->
-                <a href="<?= base_url('logout') ?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a href="<?= base_url('/karyawan-riwayat') ?>" class="nav-item nav-link">Riwayat</a>
+                        <a href="<?= base_url('logout') ?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </nav>
 
         </div>
@@ -41,29 +38,37 @@
         <div class="container-xxl py-5">
             <div class="container my-5 py-5">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="mb-5">Menu</h1>
+                    <h1 class="mb-5">Profile</h1>
                 </div>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <table class="table">
-                            <tr>
-                                <th>Tanggal</th>
-                                <th>Pesanan</th>
-                                <th>Jumlah</th>
-                                <th>Status</th>
-                                <th>Aksi</th>
-                            </tr>
-                            <tr>
-                                <td>01-01-2023</td>
-                                <td>Americano</td>
-                                <td>1</td>
-                                <td>Menunggu Konfirmasi</td>
-                                <td>
-                                    <button>Hapus</button>
-                                </td>
-                            </tr>
-                            </table>
+                        <div class="card mb-3" style="max-width: 540px; margin-left: auto; margin-right: auto">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                            <img src="<?=  user()->user_image; ?>" class="img-fluid rounded-start" alt="<?= user()->username; ?>">
+                            </div>
+                            <div class="col-md-8">
+                            <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><h4><?= user()->username; ?></h4></li>
+
+                                <?php if (user()->fullname) : ?>
+                                <li class="list-group-item"><?= user()->fullname; ?></li>
+                                <?php endif; ?>
+
+                                <li class="list-group-item"><?= user()->email; ?></li>
+
+
+                                <li class="list-group-item">
+                                <a href="<?= base_url('karyawan-profile/edit-profile-karyawan') ?>" class="btn btn-warning">Edit</a>
+                                </li>
+
+                            </ul>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
                         </div>
                     </div>
                 </div>
