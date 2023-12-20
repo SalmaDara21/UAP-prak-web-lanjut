@@ -5,11 +5,6 @@
   --dark: #0f172b;
 }
 
-.nav nav-pills d-inline-flex justify-content-center border-bottom mb-5 {
-      display: none;
-  }
-
-
 .ff-secondary {
   font-family: "Pacifico", cursive;
 }
@@ -472,4 +467,13 @@
   margin-right: 0;
   padding-right: 0;
   border-right: none;
+}
+
+.number-input {
+  width: 60px;
+  height: 30px;
+  color: #fea116;
+  font-weight: bold;
+  text-align: end;
+  border: none;
 }
