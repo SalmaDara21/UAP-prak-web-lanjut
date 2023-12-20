@@ -163,4 +163,24 @@ class User extends BaseController
 
         return view ('user_testimoni', $data);
     }
+
+    public function store_testimoni()
+    {
+        // dd($this->request->getVar());
+
+        // $user_id = user()->id;
+
+        $this->testimoniModel->saveTestimoni([
+            'pesan' => $this->request->getVar('pesan'),
+        ]);
+
+
+        $data = [
+            'pesan' => $this->request->getVar('pesan'),
+            'title' => 'store_testimoni'
+        ];
+
+        // return view ('profile', $data);
+        return redirect()->to('/menu-awal');
+    }
 }

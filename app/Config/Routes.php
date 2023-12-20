@@ -45,6 +45,7 @@ $routes->put('/inventaris/update/(:any)',[Admin::class,'update_inventaris']);
 $routes->delete('/inventaris/(:any)',[Admin::class,'destroy_inventaris']);
 
 $routes->get('/testimoni', 'User::testimoni',['filter'=> 'role:user']);
+$routes->post('/testimoni/store_testimoni', 'User::store_testimoni');
 
 
 $routes->get('/admin/menu/create', [AdminController::class, 'create']);

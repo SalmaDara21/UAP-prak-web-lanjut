@@ -26,8 +26,7 @@
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         <a href="#" class="nav-item nav-link">Home</a>
                         <a href="<?= base_url('profile') ?>" class="nav-item nav-link active">Profile</a>
-                        <a href="#" class="nav-item nav-link">About</a>
-                        <a href="<?= base_url('testimoni');?>" class="nav-item nav-link">Service</a>
+                        <a href="<?= base_url('testimoni');?>" class="nav-item nav-link">Testimoni</a>
                         <a href="<?= base_url('menu-awal');?>" class="nav-item nav-link">Menu</a>
                         <a href="<?= base_url('logout');?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
