@@ -64,10 +64,28 @@
                     <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
                         
                         <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-1">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Drink</small>
+                                    <h6 class="mt-n1 mb-0">Sanara Cafe</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
                                 <i class="fa fa-utensils fa-2x text-primary"></i>
                                 <div class="ps-3">
-                                    <small class="text-body">Drink & Food</small>
+                                    <small class="text-body">Food</small>
+                                    <h6 class="mt-n1 mb-0">Sanara Cafe</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-3">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <small class="text-body">Dessert</small>
                                     <h6 class="mt-n1 mb-0">Sanara Cafe</h6>
                                 </div>
                             </a>
