@@ -72,22 +72,20 @@ class KaryawanController extends BaseController
 
         $foto = $this->request->getFile('user_image');
 
+        $data = [
+            'fullname' => $this->request->getPost('fullname'),
+            // 'user_image' => $foto_path
+        ];
+
         if ($foto->isValid()) {
             $name = $foto->getRandomName();
 
             if ($foto->move($path, $name)) {
                 $foto_path = base_url($path . $name);
-                user()->user_image = $foto_path;
+                $data['user_image'] = $foto_path;
             }
         }
-
-
-        $data = [
-            'fullname' => $this->request->getPost('fullname'),
-            'user_image' => $foto_path
-        ];
         
-
         if(!$this->userModel->update(user()->id,$data)){
             session()->setFlashdata("Error", "failed update");
             session()->setFlashdata("ErrorData", $this->userModel->errors());

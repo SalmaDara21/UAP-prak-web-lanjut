@@ -4,29 +4,25 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Inventaris extends Migration
+class CreateTestimoniTable extends Migration
 {
     public function up()
     {
         $this->forge->addField([
             'id' => [
-                'type'          => 'INT',
-                'constraint'    => 11,
-                'unsigned'      => true,
-                'auto_increment'=> true,
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'auto_increment' => true,
             ],
-            'nama' => [
+            'pesan' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'barang' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-            ],
-            'stok' => [
-                'type'          => 'INT',
-                'constraint'    => 5,
-                'unsigned'      => true,
+            'id_users' => [
+                'type' => 'INT',
+                'constraint' => '5',
+                'unsigned' => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -41,12 +37,14 @@ class Inventaris extends Migration
                 'null' => true,
             ],
         ]);
+
         $this->forge->addKey('id', true, true);
-        $this->forge->createTable('inventaris');
+        $this->forge->addForeignKey('id_users', 'users', 'id');
+        $this->forge->createTable('testimoni');
     }
 
     public function down()
     {
-        $this->forge->dropTable('inventaris', true);
+        $this->forge->dropTable('testimoni', true);
     }
 }
