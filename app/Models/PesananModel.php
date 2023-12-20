@@ -41,4 +41,14 @@ class PesananModel extends Model
     public function savePesanan($data){
         $this->insert($data);
     }
+
+    public function getPesanan($id = null){
+        if ($id != null) {
+
+            return $this->select('pesanan.id, pesanan.nama, pesanan.meja, pesanan.pesanan, pesanan.jumlah, pesanan.harga')
+            ->find($id);
+        }
+        return $this->select('pesanan.id, pesanan.nama, pesanan.meja, pesanan.pesanan, pesanan.jumlah, pesanan.harga')
+            ->find();
+    }
 }

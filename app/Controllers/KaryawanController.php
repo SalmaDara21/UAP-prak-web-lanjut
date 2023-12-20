@@ -4,14 +4,17 @@ namespace App\Controllers;
 
 use Myth\Auth\Models\UserModel;
 use App\Models\InventarisModel;
+use App\Models\PesananModel;
 
 class KaryawanController extends BaseController
 {
     public $invetorisModel;
     public $userModel;
+    public $pesananModel;
     public function __construct(){
         $this->userModel = new UserModel();
         $this->invetorisModel=new InventarisModel();
+        $this->pesananModel=new PesananModel();
     }
 
     public function index(): string
@@ -20,9 +23,11 @@ class KaryawanController extends BaseController
     }
 
     public function pesanan(){
+        $pesanan = $this->pesananModel->getPesanan();
 
         $data = [
             'title' => 'Pesanan Karyawan',
+            'pesanan' => $pesanan
         ];
 
         return view('karyawan_pesanan', $data);
@@ -98,4 +103,6 @@ class KaryawanController extends BaseController
         session()->setFlashdata("Success", "profile update success");
         return redirect()->to(base_url()."karyawan-profile");
     }
+
+
 }

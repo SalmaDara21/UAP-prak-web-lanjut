@@ -38,30 +38,37 @@
         <div class="container-xxl py-5">
             <div class="container my-5 py-5">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="mb-5">Menu</h1>
+                    <h1 class="mb-5">Pesanan</h1>
                 </div>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <table class="table">
+                                <thead>
                             <tr>
-                                <th>Tanggal</th>
+                                <th>Nama</th>
+                                <th>Meja</th>
                                 <th>Pesanan</th>
                                 <th>Jumlah</th>
-                                <th>Status</th>
+                                <th>Harga</th>
                                 <th>Aksi</th>
                             </tr>
-                            <tr>
-                                <td>01-01-2023</td>
-                                <td>Americano</td>
-                                <td>1</td>
-                                <td>Menunggu Konfirmasi</td>
-                                <td>
-                                    <button>Konfirmasi</button>
-                                    <button>Edit Pesanan</button>
-                                    <button>Hapus</button>
-                                </td>
-                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php $i=1; ?>
+                                <?php foreach($pesanan as $pesanans) : ?>
+                                <tr>
+                                    <td><?= $pesanans['nama'] ?></td>
+                                    <td><?= $pesanans['meja'] ?></td>
+                                    <td><?= $pesanans['pesanan'] ?></td>
+                                    <td><?= $pesanans['jumlah'] ?></td>
+                                    <td><?= $pesanans['harga'] ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-info">Detail</a>
+                                    </td>
+                                </tr>
+                                <?php endforeach ?>
+                            </tbody>
                             </table>
                         </div>
                     </div>

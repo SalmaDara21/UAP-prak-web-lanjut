@@ -94,6 +94,8 @@ class Home extends BaseController
             'nama'=> $this->request->getPost('name'),
             'harga'=> $this->request->getPost('harga'),
         ]);
+
+        return view('menu');
     }
     
 
