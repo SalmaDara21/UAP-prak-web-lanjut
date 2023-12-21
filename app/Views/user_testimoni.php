@@ -24,10 +24,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="#" class="nav-item nav-link">Home</a>
+                    <a href="<?= base_url('menu-awal');?>" class="nav-item nav-link ">Home</a>
                         <a href="<?= base_url('profile') ?>" class="nav-item nav-link">Profile</a>
                         <a href="<?= base_url('testimoni');?>" class="nav-item nav-link active">Testimoni</a>
-                        <a href="<?= base_url('menu-awal');?>" class="nav-item nav-link">Menu</a>
+                        <a href="<?= base_url('pesanan_user');?>" class="nav-item nav-link">Pesanan</a>
                         <a href="<?= base_url('logout');?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                     <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
@@ -50,7 +50,7 @@
                                         <div class="row mb-4">
                                             <div class="col-md-12 form-group">
                                                 <label for="pesan">Pesan</label>
-                                                <textarea name="pesan" id="pesan" class="form-control " cols="30" rows="8"></textarea>
+                                                <textarea name="pesan" id="pesan" class="form-control " cols="30" rows="8" required></textarea>
                                             </div>
                                         </div>
 

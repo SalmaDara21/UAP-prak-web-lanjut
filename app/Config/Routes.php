@@ -29,6 +29,9 @@ $routes->post('/menu-awal/pesan/submit', 'Home::insertPesanan');
 $routes->get('/karyawan-profile', [KaryawanController::class, 'profile_karyawan']);
 $routes->get('/karyawan-profile/edit-profile-karyawan', [KaryawanController::class, 'edit_profile_karyawan']);
 $routes->post('/karyawan-profile/update-profile-karyawan', [KaryawanController::class, 'update_profile_karyawan']);
+$routes->get('/karyawan-pesanan(:any)/karyawan_konfirmasi_pesanan', [KaryawanController::class, 'pesanan_konfirmasi']);
+$routes->put('/karyawan-pesanan/(:any)', [KaryawanController::class, 'update_pesanan']);
+
 $routes->get('/menu-admin-awal', [AdminController::class, 'menu_admin']);
 // $routes->get('/test', [Home::class, 'test']);
 $routes->get('/admin', 'Admin::index',['filter'=> 'role:admin']);
@@ -40,6 +43,7 @@ $routes->get('/admin/stok_inventaris', 'Admin::stok_inventaris');
 $routes->get('/profile', 'User::profile');
 $routes->get('/profile/edit', 'User::edit');
 $routes->post('/profile/update', 'User::update');
+$routes->get('/pesanan_user', 'User::pesanan_user');
 $routes->post('/inventaris/store',[Admin::class,'store_inventaris']);
 $routes->put('/inventaris/update/(:any)',[Admin::class,'update_inventaris']);
 $routes->delete('/inventaris/(:any)',[Admin::class,'destroy_inventaris']);

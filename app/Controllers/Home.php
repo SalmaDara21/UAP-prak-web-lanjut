@@ -93,9 +93,11 @@ class Home extends BaseController
             'jumlah'=> $this->request->getPost('count'),
             'nama'=> $this->request->getPost('name'),
             'harga'=> $this->request->getPost('harga'),
+            'status'=> $this->request->getPost('status')
         ]);
 
-        return view('menu');
+        return redirect()->to('/logout'); 
+        // return view('menu');
     }
     
 

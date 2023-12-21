@@ -5,16 +5,19 @@ namespace App\Controllers;
 use Myth\Auth\Models\UserModel;
 use App\Models\InventarisModel;
 use App\Models\TestimoniModel;
+use App\Models\PesananModel;
 
 class User extends BaseController
 {
     public $invetorisModel;
     public $userModel;
     public $testimoniModel;
+    public $pesananModel;
     public function __construct(){
         $this->userModel = new UserModel();
         $this->invetorisModel=new InventarisModel();
         $this->testimoniModel=new TestimoniModel();
+        $this->pesananModel=new PesananModel();
     }
     public function index()
     {
@@ -41,7 +44,12 @@ class User extends BaseController
 
     public function profile()
     {
-        $data['title'] = 'My Profile';
+        // $seat=$_POST['seat'];
+
+        $data = [
+            'title'=>'profile',
+            // 'seat'=> $seat,
+        ];
         return view('profile', $data);
     }
     public function booking()
@@ -52,6 +60,8 @@ class User extends BaseController
             ];
         return view('booking', $data);
     }
+
+    
 
     public function updateBookingTable(){
         $postData = file_get_contents("php://input");
@@ -172,15 +182,30 @@ class User extends BaseController
 
         $this->testimoniModel->saveTestimoni([
             'pesan' => $this->request->getVar('pesan'),
+            'id_users' => user_id()
         ]);
 
 
         $data = [
-            'pesan' => $this->request->getVar('pesan'),
+            // 'pesan' => $this->request->getVar('pesan'),
+            // 'id_users' => user_id(),
             'title' => 'store_testimoni'
         ];
 
+        return view ('user_testimoni', $data);
         // return view ('profile', $data);
-        return redirect()->to('/menu-awal');
+        // return redirect()->to('/menu-awal');
+    }
+
+    public function pesanan_user()
+    {
+        $pesanan = $this->pesananModel->getPesananKaryawan();
+
+        $data = [
+            'title' => 'Pesanan',
+            'pesanan' => $pesanan
+        ];
+
+        return view('pesanan_user', $data);
     }
 }
