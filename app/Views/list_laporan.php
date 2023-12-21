@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/app') ?>
+<?= $this->extend('layouts/app_admin') ?>
 
 <?= $this->section('content') ?>
 
@@ -40,35 +40,35 @@
  <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>SANARA CAFE</h1>
+                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Sanara Cafe</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
+                <div style="color:white">admin</div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                    </div>
-                    <a href="/inventaris/create" class="btn btn-primary py-2 px-4">Tambah Data</a>
-                </div>
+                        <a href="<?= base_url('/admin');?>" class="nav-item nav-link">Home</a>
+                        <a href="<?= base_url('/admin_testimoni');?>" class="nav-item nav-link">Testimoni</a>
+                        <a href="<?= base_url('/user_list');?>" class="nav-item nav-link">Kelola Karyawan</a>
+                    <!-- </div>
+                    <a href="#" class="btn btn-primary py-2 px-4">Logout</a>
+                </div> -->
+                <a href="<?= base_url('logout') ?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </nav>
 
-            <div class="container-xxl py-5 bg-dark hero-header mb-5">
-                <div class="container text-center my-5 pt-5 pb-4">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Laporan</h1>
-                </div>
-            </div>
         </div>
         <!-- Navbar & Hero End -->
 
 <body>
-
+<br><br>
 <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Laporan</h5>
                     <h1 class="mb-5">Laporan Penjualan</h1>
-                    <a href="/laporan/create" class="btn btn-primary py-2 px-4">Tambah Data</a>
+                    
                 </div>
                 <br>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -92,55 +92,34 @@
                             <a class="media-print" onclick="window.print()">Cetak Laporan<i class="fa fa-print"></i> </a>
                                 <div class="col-lg-6">
                                 <!-- <div class= "main"> -->
-                                        <table class="table">
-                                                <thead>
-                                                    <tr class="table-danger">
-                                                        <th>ID</th>
-                                                        <th>Nama Menu</th>
-                                                        <th>Quantity</th>
-                                                        <th>Total</th>
-                                                        <th>Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                            <tbody>
-                                                <?php
-                                                foreach ($info as $laporan){
-                                                    ?>
-                                                    <tr class="table-menu">
-                                                        <td><span class="fst-italic"><?= $laporan['id'] ?></span></td>
-
-                                                        <td>
-                                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                            <span align="center"><?= $laporan['nama_menu'] ?></span>
-                                                            </h5> 
-                                                        </td>
-
-                                                        <td>
-                                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                            <span align="center" class="text-primary"><?= $laporan['quantity'] ?>
-                                                            </h5> 
-                                                        </td>
-
-                                                        <td>
-                                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                            <span align="center" class="text-primary"><?= $laporan['total'] ?>
-                                                            </h5> 
-                                                        </td>
-                                                        <td>
-                                                        <p>
-                                                        <form action="<?= base_url('laporan/' . $laporan['id']) ?>" method="post">
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <?= csrf_field() ?>
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                        </form>
-                                                        
-                                                        </td>
-                                                    </tr>
-                                                <?php
-                                                }
-                                                ?>
-                                            </tbody>
-                                            </table> 
+                                <table class="table">
+                                <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Meja</th>
+                                <th>Pesanan</th>
+                                <th>Jumlah</th>
+                                <th>Harga</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($pesanan as $pesanans) : ?>
+                                <tr>
+                                    <td><?= $pesanans['nama'] ?></td>
+                                    <td><?= $pesanans['meja'] ?></td>
+                                    <td><?= $pesanans['pesanan'] ?></td>
+                                    <td><?= $pesanans['jumlah'] ?></td>
+                                    <td><?= $pesanans['harga'] ?></td>
+                                    <td><?= $pesanans['status'] ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger">Hapus</a>
+                                    </td>
+                                </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                            </table>
                             </div>
                         </div>
                     </div>

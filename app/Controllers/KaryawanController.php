@@ -23,7 +23,8 @@ class KaryawanController extends BaseController
     }
 
     public function pesanan(){
-        $pesanan = $this->pesananModel->getPesanan();
+        // dd($this->request->getVar());
+        $pesanan = $this->pesananModel->getPesananKaryawan();
 
         $data = [
             'title' => 'Pesanan Karyawan',
@@ -31,6 +32,33 @@ class KaryawanController extends BaseController
         ];
 
         return view('karyawan_pesanan', $data);
+    }
+
+    public function pesanan_konfirmasi($id){
+        // dd($this->request->getVar());
+            $pesanan = $this->pesananModel->getPesananKaryawan($id);
+    
+            $data = [
+                'title' => 'konfirmasi Pesanan',
+                'pesanan' => $pesanan
+            ];
+            // dd($data['pesanan']);
+            return view ('karyawan_konfirmasi_pesanan', $data);
+    }
+
+    public function update_pesanan($id) {
+        $data = [
+            'status' => $this->request->getVar('status'),
+        ];
+
+        $result = $this->pesananModel->updatePesanan($data, $id);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+            ->with('error', 'Gagal Menyimpan Data');
+        }
+
+        return redirect()->to('/karyawan-pesanan');
     }
 
     public function menu(){
@@ -43,9 +71,11 @@ class KaryawanController extends BaseController
     }
 
     public function riwayat(){
+        $pesanan = $this->pesananModel->getRiwayatKaryawan();
 
         $data = [
             'title' => 'Riwayat Karyawan',
+            'pesanan' => $pesanan
         ];
 
         return view('karyawan_riwayat', $data);

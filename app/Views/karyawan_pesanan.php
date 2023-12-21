@@ -46,25 +46,28 @@
                             <table class="table">
                                 <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Nama</th>
                                 <th>Meja</th>
                                 <th>Pesanan</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $i=1; ?>
                                 <?php foreach($pesanan as $pesanans) : ?>
                                 <tr>
+                                <td><?= $pesanans['id'] ?></td>
                                     <td><?= $pesanans['nama'] ?></td>
                                     <td><?= $pesanans['meja'] ?></td>
                                     <td><?= $pesanans['pesanan'] ?></td>
                                     <td><?= $pesanans['jumlah'] ?></td>
                                     <td><?= $pesanans['harga'] ?></td>
+                                    <td><?= $pesanans['status'] ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-info">Detail</a>
+                                        <a href="<?= base_url('/karyawan-pesanan/' . $pesanans['id'] . '/karyawan_konfirmasi_pesanan') ?>" class="btn btn-info">Konfirmasi</a>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>

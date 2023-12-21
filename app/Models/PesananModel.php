@@ -12,7 +12,7 @@ class PesananModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama','meja','pesanan','jumlah','harga'];
+    protected $allowedFields    = ['nama','meja','pesanan','jumlah','harga','status'];
 
     // Dates
     protected $useTimestamps = false;
@@ -42,13 +42,33 @@ class PesananModel extends Model
         $this->insert($data);
     }
 
-    public function getPesanan($id = null){
+    public function getPesananKaryawan($id = null){
         if ($id != null) {
 
-            return $this->select('pesanan.id, pesanan.nama, pesanan.meja, pesanan.pesanan, pesanan.jumlah, pesanan.harga')
-            ->find($id);
+            return $this->select('pesanan.id, pesanan.nama, pesanan.meja, pesanan.pesanan, pesanan.jumlah, pesanan.harga, pesanan.status')
+            ->where('pesanan.status','proses')->find($id);
+            // return $this->select('pesanan.*')
+            //     ->find($id);
         }
-        return $this->select('pesanan.id, pesanan.nama, pesanan.meja, pesanan.pesanan, pesanan.jumlah, pesanan.harga')
-            ->find();
+        return $this->select('pesanan.id, pesanan.nama, pesanan.meja, pesanan.pesanan, pesanan.jumlah, pesanan.harga, pesanan.status')
+            ->where('pesanan.status','proses')->find();
+        // return $this->findAll();
+    }
+
+    public function updatePesanan($data, $id){
+        return $this->update($id, $data);
+    }
+
+    public function getRiwayatKaryawan($id = null){
+        if ($id != null) {
+
+            return $this->select('pesanan.id, pesanan.nama, pesanan.meja, pesanan.pesanan, pesanan.jumlah, pesanan.harga, pesanan.status')
+            ->where('pesanan.status','selesai')->find($id);
+            // return $this->select('pesanan.*')
+            //     ->find($id);
+        }
+        return $this->select('pesanan.id, pesanan.nama, pesanan.meja, pesanan.pesanan, pesanan.jumlah, pesanan.harga, pesanan.status')
+            ->where('pesanan.status','selesai')->find();
+        // return $this->findAll();
     }
 }

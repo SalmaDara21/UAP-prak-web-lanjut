@@ -24,10 +24,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                    <a href="<?= base_url('menu-awal');?>" class="nav-item nav-link ">Home</a>
-                        <a href="<?= base_url('profile') ?>" class="nav-item nav-link active">Profile</a>
+                    <a href="<?= base_url('menu-awal');?>" class="nav-item nav-link">Home</a>
+                        <a href="<?= base_url('profile') ?>" class="nav-item nav-link">Profile</a>
                         <a href="<?= base_url('testimoni');?>" class="nav-item nav-link">Testimoni</a>
-                        <a href="<?= base_url('pesanan_user');?>" class="nav-item nav-link">Pesanan</a>
+                        <a href="<?= base_url('pesanan_user');?>" class="nav-item nav-link active">Pesanan</a>
                         <a href="<?= base_url('logout');?>" class="nav-item nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                     <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
@@ -40,38 +40,40 @@
         <div class="container-xxl py-5">
             <div class="container my-5 py-5">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="mb-5">Edit Profile</h1>
+                    <h1 class="mb-5">Pesanan</h1>
                 </div>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <div class="card mb-3" style="max-width: 540px; margin-left: auto; margin-right: auto">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                    <img src="<?=  user()->user_image; ?>" class="img-fluid rounded-start" alt="<?= user()->username; ?>">
+                        <div class="card mb-3" style="max-width: 540px; margin-left: auto; margin-right: auto">
 
-                                        <form action="<?= base_url('profile/update') ?>" method="POST" enctype="multipart/form-data">
-                                            <?= csrf_field() ?>
-                                            <input type="hidden" id="fullname" name="id" value="<?= user()->fullname; ?>">
-                                            
-                                            </div>
-                                            <div class="col-md-8">
-                                            <div class="card-body">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"><h5>Fullname</h5><input type="text" id="fullname" name="fullname" value="<?= user()->fullname; ?>"></li>
-                                            </ul>
-                    
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item"><h5>Foto</h5><input type="file" id="user_image" name="user_image" value=""></li>
-                                            </ul>
-                                            <br>
-                                            <button type="submit" class="btn-info">Simpan</button>
-                                            </div>
-                                            
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                        
+                        <table class="table">
+                                <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Meja</th>
+                                <th>Pesanan</th>
+                                <th>Jumlah</th>
+                                <th>Harga</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($pesanan as $pesanans) : ?>
+                                <tr>
+                                    <td><?= $pesanans['nama'] ?></td>
+                                    <td><?= $pesanans['meja'] ?></td>
+                                    <td><?= $pesanans['pesanan'] ?></td>
+                                    <td><?= $pesanans['jumlah'] ?></td>
+                                    <td><?= $pesanans['harga'] ?></td>
+                                    <td><?= $pesanans['status'] ?></td>
+                                </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                            </table>
+  
+                        </div>
                         </div>
                     </div>
                 </div>

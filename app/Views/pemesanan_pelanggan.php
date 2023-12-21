@@ -157,6 +157,7 @@
             <?php endforeach; ?>
             <input type="hidden" name="name" value=<?=user()->fullname?>>
             <input type="hidden" name="harga" value=<?=$totalHarga*1000?>>
+            <input type="hidden" name="status" value='proses'>
             </form>
         
         </div>

@@ -7,6 +7,7 @@ use App\Models\InventarisModel;
 use App\Models\LaporanModel;
 use App\Models\TestimoniModel;
 use App\Controllers\BaseController;
+use App\Models\PesananModel;
 
 
 class AdminController extends BaseController{
@@ -14,6 +15,7 @@ class AdminController extends BaseController{
     public $InventarisModel;
 
     public $testimoniModel;
+    public $pesananModel;
 
     public function __construct()
     {
@@ -21,6 +23,7 @@ class AdminController extends BaseController{
         $this->InventarisModel = new InventarisModel();
         $this->LaporanModel = new LaporanModel();
         $this->testimoniModel=new TestimoniModel();
+        $this->pesananModel=new PesananModel();
     }
 
     public function index()
@@ -226,9 +229,11 @@ class AdminController extends BaseController{
 
     public function index_laporan()
     {
+        $pesanan = $this->pesananModel->getRiwayatKaryawan();
+
         $data = [
             'title' => 'Laporan Penjualan',
-            'info' => $this->LaporanModel->getLaporan(),
+            'pesanan' => $pesanan
         ];
         return view('list_laporan', $data);
     }
